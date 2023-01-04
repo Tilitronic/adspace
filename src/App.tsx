@@ -20,7 +20,7 @@ function scrollTo(xy: [number, number]): void{
 
 function App() {
   const [activeCell, setActiveCell] = useState<[number, number]>([1, 0])
-  const corSystemLen = getSystem(7, 9, [0, 1])
+  // const corSystemLen = getSystem(7, 9, [0, 1])
   const xw = window.innerWidth
   const yh = window.innerHeight
   useEffect(()=>{
@@ -28,13 +28,13 @@ function App() {
   }, [activeCell, xw, yh])
 
   const scrollElement = useRef<HTMLDivElement>(null)
-  const scrollLeft =()=>{
-    if(scrollElement.current){
-      // scrollElement.current.scrollLeft = 500;
-      setActiveCell([activeCell[0]-1, activeCell[1]])
-      scrollTo(activeCell)
-    }
-  }
+  // const scrollLeft =()=>{
+  //   if(scrollElement.current){
+  //     // scrollElement.current.scrollLeft = 500;
+  //     setActiveCell([activeCell[0]-1, activeCell[1]])
+  //     scrollTo(activeCell)
+  //   }
+  // }
 
   const handleScroll = (direction: 'up' | 'down' | 'left' | 'right')=>{
     let addition = [0, 0]
