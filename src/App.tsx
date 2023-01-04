@@ -18,8 +18,6 @@ function scrollTo(xy: [number, number]): void{
   // window.scrollTo({behavior: 'smooth', left: xw*xy[0], top: yh*xy[1]})
 }
 
-
-
 function App() {
   const [activeCell, setActiveCell] = useState<[number, number]>([1, 0])
   const corSystemLen = getSystem(7, 9, [0, 1])
