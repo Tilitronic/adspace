@@ -20,12 +20,12 @@ function scrollTo(xy: [number, number]): void{
 
 function App() {
   const [activeCell, setActiveCell] = useState<[number, number]>([1, 0])
-  const corSystemLen = getSystem(7, 9, [0, 1])
+  const corSystemLen = getSystem(7, 3, [0, 1])
   const xw = window.innerWidth
   const yh = window.innerHeight
   useEffect(()=>{
     window.scrollTo(xw*activeCell[0], yh*activeCell[1])
-  }, [activeCell, xw, yh, corSystemLen])
+  }, [activeCell, xw, yh,])
 
   const scrollElement = useRef<HTMLDivElement>(null)
   // const scrollLeft =()=>{
@@ -37,6 +37,7 @@ function App() {
   // }
 
   const handleScroll = (direction: 'up' | 'down' | 'left' | 'right')=>{
+
     let addition = [0, 0]
     switch (direction) {
       case 'up':
@@ -54,6 +55,13 @@ function App() {
       default:
         break;
     }
+    let newCor = [activeCell[0]+addition[0], activeCell[1]+addition[1]]
+    // console.log('corSystemLen', corSystemLen);
+    // console.log('corSystemLen[0].length', corSystemLen[0].length);
+    // console.log('corSystemLen.length', corSystemLen.length);
+    if(newCor[0]<0 || newCor[0]>corSystemLen[0].length-1){return}
+    if(newCor[1]<0 || newCor[1]>corSystemLen.length-1){return}
+
     setActiveCell([activeCell[0]+addition[0], activeCell[1]+addition[1]])
     scrollTo(activeCell)
   }
